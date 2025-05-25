@@ -4,7 +4,9 @@ pub trait Run
 {
     fn init(&mut self);
     fn shutdown(&mut self);
-    fn update(&mut self);
+
+    //TODO: Replace this with layer system
+    fn update(&mut self, delta: &timings::ElapsedTime);
 }
 
 pub struct Core<T>
@@ -93,6 +95,8 @@ where T: Run
         while self.running
         {
             self.timer.process(&mut elapsed);
+
+            self.run.update(&elapsed);
         }
     }
 }

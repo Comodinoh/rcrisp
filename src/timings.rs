@@ -2,7 +2,7 @@ use std::time;
 
 pub struct ElapsedTime
 {
-    secs: f64
+    pub secs: f64
 }
 
 impl ElapsedTime
